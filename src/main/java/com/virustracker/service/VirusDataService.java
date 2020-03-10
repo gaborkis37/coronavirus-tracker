@@ -57,6 +57,7 @@ public class VirusDataService {
 		}
 
 		this.allStats = newStats;
+		csvBodyReader.close();
 	}
 
 }
