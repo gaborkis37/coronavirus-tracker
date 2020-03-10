@@ -22,6 +22,11 @@
 			<h1 class="display-4" th:text="${totalReportedCases}">Total
 				cases</h1>
 			<p class="lead">Total cases reported until today</p>
+			<hr class="my-4">
+			<p>
+				<span>New cases reported since prevous day</span>
+				<span th:text="${totalNewCases}"></span>
+			</p>
 
 		</div>
 
