@@ -1,6 +1,7 @@
 package com.virustracker.service;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,6 +9,8 @@ import java.net.http.HttpResponse;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -26,7 +29,13 @@ public class VirusDataService {
 			.build();
 		
 		 HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
-		 LOGGER.debug(httpResponse.body());
+		 
+		 StringReader csvBodyReader = new StringReader(httpResponse.body());
+		 Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
+		 for (CSVRecord record : records) {
+		     String state = record.get("Province/State");
+		     LOGGER.debug(state);
+		 }
 	}
 	
 }
