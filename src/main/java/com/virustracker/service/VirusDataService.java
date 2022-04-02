@@ -24,7 +24,7 @@ import com.virustracker.model.LocationStats;
 public class VirusDataService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(VirusDataService.class.getName());
-	private static final String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
+	private static final String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 	@SuppressWarnings("unused")
 	private List<LocationStats> allStats = new ArrayList<>();
 
